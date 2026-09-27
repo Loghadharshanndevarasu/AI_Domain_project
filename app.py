@@ -109,12 +109,12 @@ def analyze_ticket(ticket: str) -> tuple[str, str, float, str]:
 def render_header() -> None:
 	st.markdown('<div class="eyebrow">NORTHSTAR / CLOUD OPERATIONS</div>', unsafe_allow_html=True)
 	st.title("Migration & Intelligent Automation")
-	st.markdown('<span class="status-pill">SYSTEMS NOMINAL</span> &nbsp; <span class="subtle">Operations portfolio · August 2026</span>', unsafe_allow_html=True)
+	st.markdown('<span class="status-pill">DEMO DATA</span> &nbsp; <span class="subtle">Sample operations portfolio · demo data</span>', unsafe_allow_html=True)
 
 
 def render_dashboard() -> None:
 	st.markdown("### Executive Dashboard")
-	st.markdown('<p class="subtle">A live view of the migration program and automation return.</p>', unsafe_allow_html=True)
+	st.markdown('<p class="subtle">A sample view of migration KPIs and automation-oriented workflows.</p>', unsafe_allow_html=True)
 	metrics = st.columns(4)
 	metrics[0].metric("Cost saved", "$742k", "+18.4%")
 	metrics[1].metric("Cloud availability", "99.97%", "+0.08%")
@@ -133,8 +133,8 @@ def render_dashboard() -> None:
 
 
 def render_analyzer() -> None:
-	st.markdown("### GenAI Incident Analyzer")
-	st.markdown('<p class="subtle">Turn an incoming support ticket into a first-response action plan.</p>', unsafe_allow_html=True)
+	st.markdown("### Incident Analyzer")
+	st.markdown('<p class="subtle">Turn an incoming support ticket into a first-response action plan using deterministic triage rules.</p>', unsafe_allow_html=True)
 	ticket = st.text_area(
 		"Paste an IT support ticket",
 		placeholder="Example: Production checkout API is timing out for customers in us-east-1...",
@@ -175,7 +175,7 @@ def render_readiness() -> None:
 
 def render_security() -> None:
 	st.markdown("### Security & DevOps")
-	st.markdown('<p class="subtle">Live operational signals and compliance posture across the delivery platform.</p>', unsafe_allow_html=True)
+	st.markdown('<p class="subtle">Sample operational signals and compliance posture for a delivery platform.</p>', unsafe_allow_html=True)
 	status_col, compliance_col = st.columns([1.1, 1.9])
 	with status_col:
 		st.markdown("### Compliance posture")
@@ -188,7 +188,7 @@ def render_security() -> None:
 		controls = pd.DataFrame({"Control": ["IAM least privilege", "Encryption at rest", "Backup recovery", "Vulnerability SLA"], "Status": ["PASS", "PASS", "PASS", "REVIEW"], "Owner": ["Platform", "Security", "SRE", "AppSec"]})
 		st.dataframe(controls, use_container_width=True, hide_index=True)
 	st.markdown('<div class="section-rule"></div>', unsafe_allow_html=True)
-	st.markdown("### Real-time system log alerts")
+	st.markdown("### System log alerts (sample)")
 	if st.button("Refresh alerts"):
 		st.rerun()
 	current_time = datetime.now().strftime("%H:%M:%S")
@@ -203,14 +203,14 @@ with st.sidebar:
 	st.markdown("### CloudOps / 26.08")
 	st.markdown('<p class="subtle">Owner: Enterprise Technology<br>Region: Global production</p>', unsafe_allow_html=True)
 	st.markdown('<div class="section-rule"></div>', unsafe_allow_html=True)
-	st.caption("Last data sync")
+	st.caption("Sample data timestamp")
 	st.markdown("**08:42 UTC**")
 	st.caption("Environment")
-	st.markdown("**Production · 12 regions**")
+	st.markdown("**Demo environment · sample regions**")
 
 dashboard_tab, analyzer_tab, readiness_tab, security_tab = st.tabs([
 	"Executive Dashboard",
-	"GenAI Incident Analyzer",
+	"Incident Analyzer",
 	"Cloud Readiness Matrix",
 	"Security & DevOps",
 ])
